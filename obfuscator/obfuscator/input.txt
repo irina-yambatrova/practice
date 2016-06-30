@@ -1,0 +1,27 @@
+PROGRAM _12;
+VAR
+	input_file, output_file: TEXT;
+	key, i: INTEGER;
+	s: STRING;
+BEGIN
+  ASSIGN(input_file, 'input1.txt');
+  ASSIGN(output_file, 'output1.txt');
+  RESET(input_file);
+  REWRITE(output_file);
+  WRITE('Введите ключ для шифрования ');     //ввод ключа для шифрования
+  READLN(key);
+  WHILE                    NOT EOF(input_file)
+  DO
+  BEGIN
+	READLN(input_file, s);     
+	for i := 1 to length(s)
+    DO
+    BEGIN
+       s[i] := chr(ord(s[i]) + key);     {шифрование
+    текстового файла}
+    END;
+    WRITELN(output_file, s);
+  END;
+  CLOSE(input_file);
+  CLOSE(output_file);
+END.
