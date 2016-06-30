@@ -82,6 +82,13 @@ void CObfuscator::DeleteSpaces()
 			}
 		}
 		// удалить пробелы между разделителями
+		vector<string> words;
+		boost::split(words, str, boost::is_any_of(":=-+,.-"));
+		words.erase(remove(words.begin(), words.end(), ""), words.end());
+		for (auto &str1 : words)
+		{
+			cout << str1;
+		}
 	}
 }
 
