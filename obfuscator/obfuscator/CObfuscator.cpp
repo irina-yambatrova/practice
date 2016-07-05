@@ -61,11 +61,13 @@ void CObfuscator::DeleteTabAndHyph()
 {
 	for (auto &str : m_inputText)
 	{
+		
 		if (str.find('\t') != -1) 
 		{
 			str.erase(str.find('\t'), 1);
 		}
-	}
+		
+	}	
 }
 
 void CObfuscator::DeleteSpaces()
@@ -81,14 +83,8 @@ void CObfuscator::DeleteSpaces()
 				i = (i - 1);
 			}
 		}
+		//cout << str;
 		// удалить пробелы между разделителями
-		vector<string> words;
-		boost::split(words, str, boost::is_any_of(":=-+,.-"));
-		words.erase(remove(words.begin(), words.end(), ""), words.end());
-		for (auto &str1 : words)
-		{
-			cout << str1;
-		}
 	}
 }
 
